@@ -8,7 +8,7 @@ const {
   addEmployee,
   updateEmployee,
   deleteEmployee
-} = require("../controllers/employeeController");
+} = require("../Controllers/employeeController");
 
 
 // GET ALL
