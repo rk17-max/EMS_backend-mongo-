@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 5100;
+const PORT = process.env.PORT || 5100;
 const mongoose=require("mongoose")
 const employeeRoutes = require("./routes/employeeRoutes");
 const cors =require("cors")
@@ -53,6 +53,6 @@ mongoose.connect("mongodb://backend:9873754056@cluster0-shard-00-00.sbrgl.mongod
 
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Express server listening at http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Express server listening at http://localhost:${PORT}`);
 });
