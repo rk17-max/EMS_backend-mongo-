@@ -40,19 +40,12 @@ app.get("/", (req, res) => {
 //     const foodData=data.filter((item)=>item.category==="Food")
 //     res.send(foodData   )
 // });
-
-mongoose.connect("mongodb://backend:9873754056@cluster0-shard-00-00.sbrgl.mongodb.net:27017,cluster0-shard-00-01.sbrgl.mongodb.net:27017,cluster0-shard-00-02.sbrgl.mongodb.net:27017/?ssl=true&replicaSet=atlas-efi1bs-shard-0&authSource=admin&appName=Cluster0")
-.then(()=>{
-  console.log("DB connected")
-
-})
-.catch((err)=>{
-  console.log(err)
-
-});
-
-
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Express server listening at http://localhost:${PORT}`);
-});
+MONGO_URI="mongodb://backend:9873754056@cluster0-shard-00-00.sbrgl.mongodb.net:27017,cluster0-shard-00-01.sbrgl.mongodb.net:27017,cluster0-shard-00-02.sbrgl.mongodb.net:27017/?ssl=true&replicaSet=atlas-efi1bs-shard-0&authSource=admin&appName=Cluster0"
+mongoose.connect(MONGO_URI)
+  .then(() => {
+    console.log("DB connected");
+    app.listen(PORT, () => {
+      console.log(`Server running on ${PORT}`);
+    });
+  })
+  .catch(err => console.error(err));
